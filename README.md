@@ -1,4 +1,4 @@
-# 📘 AI LearnMate – Günlük Planlama Asistanı
+# 📘 LearnMate – Günlük Planlama Asistanı
 
 ---
 
@@ -13,7 +13,7 @@
 
 ## 🎯 Proje Açıklaması
 
-**AI LearnMate**, yapay zeka destekli bir günlük planlama defteri uygulamasıdır. Kullanıcıların günlük hedeflerini, görevlerini ve alışkanlıklarını kaydetmesini sağlar. Uygulama, bu verileri analiz ederek kullanıcılara kişisel öneriler sunar.
+**LearnMate**, yapay zeka destekli bir günlük planlama defteri uygulamasıdır. Kullanıcıların günlük hedeflerini, görevlerini ve alışkanlıklarını kaydetmesini sağlar. Uygulama, bu verileri analiz ederek kullanıcılara kişisel öneriler sunar.
 
 Örnek öneri:  
 > “Son 3 gündür çalışma süren düştü. Yarın sabah 10:00'da 25 dakikalık bir odak oturumu planlamanı öneririm.”
