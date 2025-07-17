@@ -7,5 +7,5 @@ app = FastAPI()
 templates = Jinja2Templates(directory="app/templates")
 
 @app.get("/")
-async def redirect_login(request: Request):
-    return templates.TemplateResponse("login.html",{"request": request})
+async def landing_page(request: Request):
+    return templates.TemplateResponse("landing_page.html",{"request": request})
