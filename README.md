@@ -108,6 +108,66 @@ Sprint içeriğine göre 50 puan üzerinden değerlendirme yapılmıştır.
 
 </details>
 
+<details>
+<summary><h3>Sprint 2</h3></summary>
+
+### 🎯 Hedefler
+- [x] Ana sayfa HTML ve TailwindCSS ile oluşturulacak  
+- [x] Görev ekleme/silme işlevleri geliştirilecek  
+- [x] Enter ile görev ekleme desteği eklenecek  
+- [x] Günlük his ve değerlendirme alanları eklenecek  
+- [x] AI öneri kutusu tasarlanacak  
+- [x] Dark tema entegre edilecek  
+- [x] FastAPI ile backend başlangıcı yapılacak
+
+---
+
+### 📌 Backlog
+- Görev listesi kutucukları tamamlandı  
+- Enter tuşuyla görev ekleme sağlandı  
+- His/duygu ve gelişim alanları tasarlandı  
+- Yapay zeka öneri kutusu görsel olarak oluşturuldu  
+- FastAPI backend temel yapısı başlatıldı  
+- Tüm frontend TailwindCSS ile responsive hale getirildi
+
+---
+
+### 🔍 Review
+- Ana sayfa tasarımı tamamlandı  
+- Görevler checkbox ve silme butonlarıyla işlevsel hale getirildi  
+- Yapay zeka öneri kutusu statik öneriyle gösterildi  
+- FastAPI backend hazırlandı (veritabanı kullanılmadan)  
+- Uygulama dark temaya uygun şekilde geliştirildi  
+- Sprint hedeflerinin tamamı başarıyla yerine getirildi
+
+---
+
+### 🔁 Retrospective
+- ✅ Görev yönetimi ve etkileşimli yapı stabil çalışıyor  
+- ✅ Takım içi koordinasyon sorunsuzdu  
+- ⚠️ AI önerisi henüz statik yapıda  
+- 🛠️ 3. sprint’te AI önerisi dinamik hale getirilecek  
+- 🔄 FastAPI ile AI endpoint yapısı oluşturulacak  
+- 🌙 Tema geçiş opsiyonları değerlendirilecek
+
+---
+
+### 🧮 Puanlama
+
+| Kategori | Puan (0-10) |
+|----------|-------------|
+| UI Uygulama | **[9]** |
+| Etkileşimli Yapı | **[9]** |
+| Teknik Derinlik | **[8]** |
+| Takım Uyumu | **[9]** |
+| Süreç Yönetimi | **[8]** |
+
+🧠 **Puanlama Mantığı:**  
+Sprint 2 içeriği 50 puan üzerinden değerlendirilmiştir.  
+Tasarım ve etkileşimli yapı eksiksiz tamamlandı, yalnızca AI öneri kısmı şimdilik statik olarak kaldı.
+
+</details>
+
 ---
 
 ## 🔗 Bağlantılar
