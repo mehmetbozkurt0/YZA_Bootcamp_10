@@ -10,11 +10,11 @@
       theme: {
         extend: {
           colors: {
-            primary: "#ff6464",     
-            secondary: "#f6f7fb",   
-            card: "#ffffff",        
-            text: "#1f2937",        
-            accent: "#04a5dd",      
+            primary: "#ff6464",
+            secondary: "#f6f7fb",
+            card: "#ffffff",
+            text: "#1f2937",
+            accent: "#04a5dd",
             greenDone: "#22c55e",
             blueProgress: "#3b82f6",
             redPending: "#ef4444"
@@ -32,6 +32,11 @@
     <div class="flex items-center gap-4">
       <input type="text" placeholder="Görev ara..." class="border border-gray-300 rounded-md px-3 py-1 focus:outline-accent">
       <span class="text-sm text-gray-500 hidden sm:inline" id="todayDate">Yükleniyor...</span>
+
+      <!-- Çıkış Butonu -->
+      <a href="/logout" class="ml-4 bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition">
+        Çıkış Yap
+      </a>
     </div>
   </header>
 
