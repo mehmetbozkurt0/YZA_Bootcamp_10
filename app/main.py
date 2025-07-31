@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Form, Request
+from fastapi import FastAPI, Form, Request, Body
 from fastapi.params import Query
 from starlette.middleware.sessions import SessionMiddleware
 from starlette.responses import RedirectResponse, HTMLResponse, JSONResponse
@@ -40,9 +40,20 @@ async def home(request: Request):
     user_name = request.session.get("user_name")
     if not user_id:
         return RedirectResponse(url="/login")
-    return templates.TemplateResponse("landing_page.html", {"request": request, "user_name": user_name})
 
-from fastapi import Body
+    quote = crud.get_daily_quote()
+    reflection = crud.get_reflection(user_id)
+    mood = reflection[0] if reflection else ""
+    feedback = reflection[1] if reflection else ""
+
+    return templates.TemplateResponse("landing_page.html", {
+        "request": request,
+        "user_name": user_name,
+        "quote": quote,
+        "mood": mood,
+        "feedback": feedback
+    })
+
 
 @app.post("/add-task")
 async def add_task(request: Request, task: TaskModel = Body(...)):
@@ -78,3 +89,36 @@ async def update_task(request: Request, update: TaskUpdateModel):
         return JSONResponse(content={"error": "Oturum bulunamadı!"})
     crud.update_task_by_id(user_id, update.task_id, update.completed)
     return JSONResponse(content={"message": "Görev güncellendi!"})
+
+@app.get("/register")
+async def redirect_register(request: Request):
+    return templates.TemplateResponse("register.html",{"request": request})
+
+@app.post("/register")
+async def register(email: str = Form(...), password:str = Form(...), username: str = Form(...)):
+    if crud.check_user_exist(email):
+        return HTMLResponse(content="Bu email ile zaten bir hesap var!", status_code=400)
+
+    crud.register_user(email,password,username)
+    return RedirectResponse(url="/login", status_code=302)
+
+@app.post("/save-reflections")
+async def save_reflections(request: Request, mood: str = Form(...), feedback: str = Form(...)):
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JSONResponse(content={"error":"Oturum bulunamadı!"}, status_code=401)
+
+    crud.save_or_update_reflection(user_id,mood,feedback)
+    return RedirectResponse("/",status_code=302)
+
+
+
+
+
+
+
+
+
+
+
+
