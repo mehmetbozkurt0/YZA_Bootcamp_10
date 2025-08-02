@@ -30,7 +30,8 @@ def add_task(user_id: int, text: str, completed: bool = False):
 
 def get_tasks(user_id: int):
     try:
-        cursor.execute("SELECT TaskId, Title, IsCompleted FROM tblTask WHERE UserId = ?", (user_id,))
+        today = date.today()
+        cursor.execute("SELECT TaskId, Title, IsCompleted FROM tblTask WHERE UserId = ? AND TaskDate = ?", (user_id,today   ))
         rows = cursor.fetchall()
         result = [{"id": row[0], "text": row[1], "completed": bool(row[2])} for row in rows]
         return result
@@ -97,12 +98,19 @@ def save_or_update_reflection(user_id, mood, feedback):
         cursor.execute("INSERT INTO tblReflection (UserId, Mood, Feedback) VALUES (?, ?, ?)", (user_id, mood, feedback))
     db.commit()
 
+def get_task_summary_for_ai(user_id:int):
+    try:
+        cursor.execute("SELECT Title, IsCompleted FROM tblTask WHERE UserId = ?", (user_id,))
+        rows = cursor.fetchall()
 
+        completed = [row[0] for row in rows if row[1] == 1]
+        not_completed = [row[0] for row in rows if row[1] == 0]
 
+        return {
+            "completed": completed,
+            "not_completed": not_completed
+        }
 
-
-
-
-
-
-
+    except Exception as e:
+        print("AI hatası: ",e)
+        return {"completed": [], "not_completed": []}
