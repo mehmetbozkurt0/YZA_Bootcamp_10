@@ -89,8 +89,8 @@
     <!-- AI Önerisi -->
     <section class="bg-card rounded-xl shadow p-6">
       <h2 class="text-lg font-semibold mb-2">🤖 AI Önerisi</h2>
-      <div class="bg-blue-50 border-l-4 border-blue-400 text-blue-800 p-4 rounded-md italic">
-        Son günlerde fizik çalışmaların aksadı. Yarın sabah 10:00'da 25 dakikalık bir fizik tekrar oturumu planlamanı öneriyorum.
+      <div id="aiSuggestion" class="bg-blue-50 border-l-4 border-blue-400 text-blue-800 p-4 rounded-md italic">
+        Yükleniyor...
       </div>
     </section>
   </main>
@@ -105,6 +105,18 @@
     const taskListEl = document.getElementById("taskList");
     const inputEl = document.getElementById("newTaskInput");
     let tasks = [];
+
+    async function loadAiSuggestion() {
+      const res = await fetch("/ai-suggestion");
+      const data = await res.json();
+      const aiBox = document.getElementById("aiSuggestion");
+
+      if (data.suggestion) {
+        aiBox.textContent = data.suggestion;
+      } else {
+        aiBox.textContent = "AI'dan öneri alınamadı.";
+      }
+    }
 
     function renderTasks() {
       taskListEl.innerHTML = "";
@@ -198,7 +210,10 @@
         renderTasks();
       }
     }
-    window.onload = loadTasks;
+    window.onload = () => {
+      loadTasks();
+      loadAiSuggestion();
+    }
 
     inputEl.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {

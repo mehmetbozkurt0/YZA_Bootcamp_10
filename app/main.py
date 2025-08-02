@@ -4,6 +4,7 @@ from starlette.middleware.sessions import SessionMiddleware
 from starlette.responses import RedirectResponse, HTMLResponse, JSONResponse
 from starlette.templating import Jinja2Templates
 from app import crud
+from app import ai
 from app.models import TaskModel, TaskUpdateModel
 
 app = FastAPI()
@@ -111,9 +112,15 @@ async def save_reflections(request: Request, mood: str = Form(...), feedback: st
     crud.save_or_update_reflection(user_id,mood,feedback)
     return RedirectResponse("/",status_code=302)
 
+@app.get("/ai-suggestion")
+async def ai_suggestion(request: Request):
+    user_id = request.session.get("user_id")
+    if not user_id:
+        return JSONResponse(content={"error": "Oturum bulunamadı!"})
+    task_summary = crud.get_task_summary_for_ai(user_id)
+    suggestion = ai.get_ai_suggestions(task_summary)
 
-
-
+    return JSONResponse(content={"suggestion": suggestion})
 
 
 
