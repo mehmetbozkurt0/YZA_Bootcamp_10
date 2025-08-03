@@ -13,23 +13,23 @@
 
 ## 🎯 Proje Açıklaması
 
-**LearnMate**, yapay zeka destekli bir günlük planlama defteri uygulamasıdır. Kullanıcıların günlük hedeflerini, görevlerini ve alışkanlıklarını kaydetmesini sağlar. Uygulama, bu verileri analiz ederek kullanıcılara kişisel öneriler sunar.
+**LearnMate**, yapay zeka destekli bir günlük planlama defteri uygulamasıdır. Kullanıcıların günlük hedeflerini, görevlerini ve his durumlarını kaydetmesini sağlar. Uygulama, eksik tamamlanan görevlere göre öneriler sunarak planlı ve verimli çalışma alışkanlığı kazandırmayı hedefler.
 
 Örnek öneri:  
-> “Son 3 gündür çalışma süren düştü. Yarın sabah 10:00'da 25 dakikalık bir odak oturumu planlamanı öneririm.”
+> “Son 2 gündür kitap okuma hedefini tamamlamadın. Yarın sabah 10:00'da 25 dakikalık bir okuma oturumu planlamanı öneririm.”
 
-Yapay zeka, eksik kalan görevleri ve alışkanlıkları analiz eder; kullanıcıya motive edici ve odaklı bir plan sunar. Uygulama, verimlilik artırmaya ve sürdürülebilir alışkanlık oluşturmaya odaklanır.
+Yapay zeka sistemi, kullanıcı geçmiş verilerini analiz ederek yapılmayan görevleri tespit eder ve **Gemini generative AI** altyapısıyla kişiye özel öneriler oluşturur.
 
 ---
 
 ## 🧠 Uygulama Özellikleri
 
-- 📅 Günlük görev ve plan ekleme
-- 🔁 Tekrarlayan alışkanlık takibi
-- 📊 İlerleme ve davranış analizi
-- 🤖 AI destekli planlama önerileri
-- 🔔 Zamanlı hatırlatmalar ve gün içi bildirimler
-- 📝 Not alma ve özel mod (kilitli sayfa)
+- 📅 Günlük görev ekleme ve takibi
+- 📈 Görev tamamlama durumuna göre AI öneri üretimi
+- 🤖 Gemini AI ile kişisel planlama desteği
+- 🧠 His durumu kaydı
+- 🔒 Oturum tabanlı kullanıcı yönetimi (SessionMiddleware)
+- 🗂️ MSSQL veritabanı ile kullanıcıya özel veri yönetimi
 
 ---
 
@@ -44,8 +44,7 @@ Yapay zeka, eksik kalan görevleri ve alışkanlıkları analiz eder; kullanıc�
 
 ## 🖼️ Uygulama Görselleri
 
-> Figma prototipleri veya uygulama ekran görüntüleri eklenecek
-
+> Figma prototipi henüz oluşturulmadı. Tasarım tamamlandığında buraya eklenecektir.
 
 ---
 
@@ -56,7 +55,6 @@ Yapay zeka, eksik kalan görevleri ve alışkanlıkları analiz eder; kullanıc�
 
 📸 Scrum SS’leri:
 > <img width="1876" height="994" alt="Screenshot 2025-07-15 220102" src="https://github.com/user-attachments/assets/a2f49afe-e3ac-4598-a12e-ab6866667dae" />
-
 
 ---
 
@@ -114,41 +112,36 @@ Sprint içeriğine göre 50 puan üzerinden değerlendirme yapılmıştır.
 ### 🎯 Hedefler
 - [x] Ana sayfa HTML ve TailwindCSS ile oluşturulacak  
 - [x] Görev ekleme/silme işlevleri geliştirilecek  
-- [x] Enter ile görev ekleme desteği eklenecek  
 - [x] Günlük his ve değerlendirme alanları eklenecek  
-- [x] AI öneri kutusu tasarlanacak  
-- [x] Dark tema entegre edilecek  
+- [x] Yapay zeka öneri kutusu hazırlanacak  
 - [x] FastAPI ile backend başlangıcı yapılacak
 
 ---
 
 ### 📌 Backlog
-- Görev listesi kutucukları tamamlandı  
-- Enter tuşuyla görev ekleme sağlandı  
-- His/duygu ve gelişim alanları tasarlandı  
-- Yapay zeka öneri kutusu görsel olarak oluşturuldu  
-- FastAPI backend temel yapısı başlatıldı  
-- Tüm frontend TailwindCSS ile responsive hale getirildi
+- Görev yönetimi kutucukları tamamlandı  
+- His durumu alanları eklendi  
+- Yapay zeka öneri kutusu hazırlandı (statik olarak)  
+- FastAPI altyapısı kuruldu  
+- TailwindCSS ile frontend yapı tamamlandı
 
 ---
 
 ### 🔍 Review
 - Ana sayfa tasarımı tamamlandı  
 - Görevler checkbox ve silme butonlarıyla işlevsel hale getirildi  
-- Yapay zeka öneri kutusu statik öneriyle gösterildi  
-- FastAPI backend hazırlandı (veritabanı kullanılmadan)  
-- Uygulama dark temaya uygun şekilde geliştirildi  
-- Sprint hedeflerinin tamamı başarıyla yerine getirildi
+- Yapay zeka öneri kutusu görsel olarak eklendi  
+- FastAPI backend hazırlandı  
+- MSSQL entegrasyonu planlandı  
 
 ---
 
 ### 🔁 Retrospective
-- ✅ Görev yönetimi ve etkileşimli yapı stabil çalışıyor  
-- ✅ Takım içi koordinasyon sorunsuzdu  
-- ⚠️ AI önerisi henüz statik yapıda  
-- 🛠️ 3. sprint’te AI önerisi dinamik hale getirilecek  
-- 🔄 FastAPI ile AI endpoint yapısı oluşturulacak  
-- 🌙 Tema geçiş opsiyonları değerlendirilecek
+- ✅ Görev yönetimi başarıyla geliştirildi  
+- ✅ UI tasarımı beklentiyi karşıladı  
+- ⚠️ Dark tema entegrasyonu sprint içinde yapılamadı  
+- ⚠️ AI önerileri şimdilik manuel olarak girildi  
+- 🛠️ 3. sprint’te AI sistemi generative hale getirilecek
 
 ---
 
@@ -157,14 +150,68 @@ Sprint içeriğine göre 50 puan üzerinden değerlendirme yapılmıştır.
 | Kategori | Puan (0-10) |
 |----------|-------------|
 | UI Uygulama | **[9]** |
-| Etkileşimli Yapı | **[9]** |
+| Görev Yönetimi | **[9]** |
 | Teknik Derinlik | **[8]** |
 | Takım Uyumu | **[9]** |
 | Süreç Yönetimi | **[8]** |
 
 🧠 **Puanlama Mantığı:**  
 Sprint 2 içeriği 50 puan üzerinden değerlendirilmiştir.  
-Tasarım ve etkileşimli yapı eksiksiz tamamlandı, yalnızca AI öneri kısmı şimdilik statik olarak kaldı.
+Görev ve his takibi başarıyla entegre edildi. AI tarafı ise bir sonraki sprint'e bırakıldı.
+
+</details>
+
+<details>
+<summary><h3>Sprint 3</h3></summary>
+
+### 🎯 Hedefler
+- [x] Kullanıcı girişi ekranı geliştirilecek  
+- [x] Görevler, kullanıcı ve his verileri MSSQL'e aktarılacak  
+- [x] SessionMiddleware ile kullanıcı oturumu yönetilecek  
+- [x] Gemini AI ile dinamik öneri sistemi kurulacak  
+- [x] Uygulama tam fonksiyonel hale getirilecek ve proje sonlandırılacak
+
+---
+
+### 📌 Backlog
+- MSSQL veritabanı bağlantısı başarıyla kuruldu  
+- Kullanıcılar, görevler ve his verileri veritabanına aktarıldı  
+- FastAPI üzerinden `SessionMiddleware` ile kullanıcı oturumu oluşturuldu  
+- Yapay zeka öneri sistemi Gemini AI ile entegre edildi  
+- Kullanıcının tamamlamadığı görevlere göre öneriler üretilmeye başlandı  
+- Proje son sprintte tamamlandı ✅
+
+---
+
+### 🔍 Review
+- Kullanıcı girişi, görev kaydı ve öneri sistemi tam entegre edildi  
+- Gemini AI başarılı şekilde görev analizine göre öneriler üretiyor  
+- Session bazlı oturum kontrolü sorunsuz çalışıyor  
+- Proje tüm hedefleriyle birlikte tamamlandı
+
+---
+
+### 🔁 Retrospective
+- ✅ MSSQL entegrasyonu başarıyla çalıştı  
+- ✅ Gemini AI öneri sistemi beklentiyi karşıladı  
+- 🛠️ İleride dil seçeneği ve tema geçişi gibi kullanıcı deneyimi arttırıcı özellikler eklenebilir
+
+---
+
+### 🧮 Puanlama
+
+| Kategori | Puan (0-10) |
+|----------|-------------|
+| Backend İşlevsellik | **[10]** |
+| Kalıcı Veri Yapısı | **[10]** |
+| AI Entegrasyonu | **[10]** |
+| Kullanıcı Yönetimi | **[10]** |
+| Proje Teslim Durumu | **[10]** |
+
+🧠 **Puanlama Mantığı:**  
+Projenin son sprintinde tüm sistemler birleştirildi. Kullanıcı verileri kalıcı hale getirildi, yapay zeka önerileri gerçek zamanlı üretildi ve proje başarıyla tamamlandı.
+
+🎯 **Toplam Puan: 50 / 50**
 
 </details>
 
@@ -172,5 +219,4 @@ Tasarım ve etkileşimli yapı eksiksiz tamamlandı, yalnızca AI öneri kısmı
 
 ## 🔗 Bağlantılar
 
-- [Figma Tasarımı](EKLENECEK_LINK)
-
+- [Figma Tasarımı](EKLENECEK_LINK) _(hazırlanma aşamasında)_
